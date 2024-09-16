@@ -63,7 +63,7 @@
     <ClInclude Include="Msaf.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Snp2Cfg.h">
+    <ClInclude Include="NewSnp2Cfg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Spp.h">

@@ -2,7 +2,7 @@
 #include "atsplugin.h"
 #include "Atssn.h"
 
-CAtssn::CAtssn(void)
+CAtssn::CAtssn()
 {
 }
 

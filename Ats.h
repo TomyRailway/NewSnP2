@@ -67,4 +67,4 @@ CTims g_tims; // TIMS装置
 CDate g_date; // 日付機能
 CSub g_sub; // その他機能
 CAccel g_accel; // 加速度
-Snp2Cfg g_ini; // Iniファイル
+NewSnp2Cfg g_ini; // Iniファイル

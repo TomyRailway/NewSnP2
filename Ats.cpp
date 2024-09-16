@@ -10,7 +10,7 @@
 #include "Date.hpp"
 #include "Sub.hpp"
 #include "Accel.hpp"
-#include "Snp2Cfg.h"
+#include "NewSnp2Cfg.h"
 #include "Ats.h"
 
 BOOL APIENTRY DllMain( HANDLE hModule, 
@@ -107,7 +107,7 @@ ATS_API void WINAPI SetVehicleSpec(ATS_VEHICLESPEC vehicleSpec)
 	g_atssn.CancelNotch = vehicleSpec.AtsNotch;
 	g_atsp.EmergencyNotch = g_emgBrake;
 	g_atsp.ServiceNotch = vehicleSpec.AtsNotch;
-	// g_atsps.EmergencyNotch = g_emgBrake;
+	//g_atsps.EmergencyNotch = g_emgBrake;
 	g_datc.EmergencyNotch = g_emgBrake;
 	g_spp.ServiceNotch = vehicleSpec.AtsNotch;
 	g_eb.EmergencyNotch = g_emgBrake;
