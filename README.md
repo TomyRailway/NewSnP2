@@ -9,7 +9,7 @@ ATS-SN・ATS-Ps・ATS-P・ATC-6・D-ATC・TIMS・EBなど
 今後順次機能を追加予定
 
 ## LICENSE
-[MIT](https://github.com/TomyRailway/NewATS-Sn-P2/blob/main/LICENCE.md)
+[LGPL]
 
 ## 現在の最新バージョン
 [Version1.0(2024/9/16版)](https://github.com/TomyRailway/NewATS-Sn-P2/releases/tag/Version1.0)
