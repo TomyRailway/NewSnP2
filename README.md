@@ -6,7 +6,7 @@ Unicorn氏が以前公開していた「JR東日本 次世代車両向け ATSプ
 プルリクなど送って頂ければ対応しますので、よろしくお願いします。  
 
 ## プラグインの機能
-ATS-SN・ATS-Ps・ATS-P・ATC-6・ATC-10・D-ATC・TIMS・EBなど  
+ATS-SN・ATS-P・ATC-6・ATC-10・D-ATC・TIMS・EBなど  
 今後順次機能を追加予定
 
 ## LICENSE
