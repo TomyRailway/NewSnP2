@@ -13,7 +13,7 @@
 class CAtsps
 {
 public:
-	// int EmergencyNotch; // 非常ノッチ
+	int EmergencyNotch; // 非常ノッチ
 	int *BrakeNotch; // ブレーキノッチ
 	float *TrainSpeed; // 速度計の速度[km/h]
 	int *DeltaT; // フレーム時間[ms/frame]
@@ -25,6 +25,7 @@ public:
 	int PatternStart; // パターン発生
 	int PatternApproach; // パターン接近
 	int BrakeTurnOff; // ブレーキ開放
+	int BrakeTurnOn; // ブレーキ動作
 	int TrainSpeedLED; // 列車速度LED
 	int PatternSpeedLED; // パターン速度LED
 	int BrakeDown; // 故障
@@ -33,7 +34,7 @@ public:
 	int PatternEnd; // Psパターン終了
 	int Chime; // Psチャイム
 
-	CAtsps()
+	CAtsps(void)
 	{
 	}
 
@@ -46,6 +47,16 @@ public:
 	{
 		Init();
 	}
+
+	/*
+    // ATS-SNに切替
+    void CAtsps::Exit()
+    {
+	    if(AtspLamp){blowBell(false);}
+	    init();
+    }
+
+	*/
 
 	// Elapseで実行します
 	void execute(void)

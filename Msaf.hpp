@@ -1,10 +1,11 @@
 // ëäñÕìSìπ ATS
-// Copyright (C) Unicorn 2009
+// Copyright (C) TomyRailway 2024
 
 #ifndef ATS_MSAF_HPP_INCLUDED
 #define ATS_MSAF_HPP_INCLUDED
 
 #include "stdafx.h"
+#include "atsplugin.h"
 
 #define ATSMSAF_DECELERATION 19.5F // å∏ë¨íËêî (å∏ë¨ìx[km/h/s] x 7.2)
 

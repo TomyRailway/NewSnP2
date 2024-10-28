@@ -13,9 +13,9 @@ private:
 	int delta_time;
 
 public:
-	int *Time; // 現在時刻
-	float *TrainSpeed; // 速度計の速度[km/h]
-	int *DeltaT; // フレーム時間[ms/frame]
+	int* Time; // 現在時刻
+	float* TrainSpeed; // 速度計の速度[km/h]
+	int* DeltaT; // フレーム時間[ms/frame]
 
 	float accel_kmhs; // 加速度[km/h/s]
 

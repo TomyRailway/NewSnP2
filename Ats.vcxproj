@@ -193,6 +193,7 @@
     <ClInclude Include="Ats.h" />
     <ClInclude Include="AtsP.h" />
     <ClInclude Include="atsplugin.h" />
+    <ClInclude Include="AtsPs.h" />
     <ClInclude Include="AtsPs.hpp" />
     <ClInclude Include="AtsSn.h" />
     <ClInclude Include="DAtc.hpp" />

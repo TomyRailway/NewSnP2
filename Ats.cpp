@@ -13,65 +13,65 @@
 #include "NewSnp2Cfg.h"
 #include "Ats.h"
 
-BOOL APIENTRY DllMain( HANDLE hModule, 
-                       DWORD  ul_reason_for_call, 
-                       LPVOID lpReserved
-					 )
+BOOL APIENTRY DllMain(HANDLE hModule,
+	DWORD  ul_reason_for_call,
+	LPVOID lpReserved
+)
 {
-    switch (ul_reason_for_call)
+	switch (ul_reason_for_call)
 	{
-		case DLL_PROCESS_ATTACH:
-			g_atssn.Time = &g_time;
-			g_atssn.Notch = &g_brakeNotch;
+	case DLL_PROCESS_ATTACH:
+		g_atssn.Time = &g_time;
+		g_atssn.Notch = &g_brakeNotch;
 
-			g_atsp.TrainSpeed = &g_speed;
-			g_atsp.DeltaT = &g_deltaT;
-			g_atsp.BrakeNotch = &g_brakeNotch;
-			g_atsp.Reverser = &g_reverser;
+		g_atsp.TrainSpeed = &g_speed;
+		g_atsp.DeltaT = &g_deltaT;
+		g_atsp.BrakeNotch = &g_brakeNotch;
+		g_atsp.Reverser = &g_reverser;
 
-			g_atsps.BrakeNotch = &g_brakeNotch;
-			g_atsps.TrainSpeed = &g_speed;
-			g_atsps.DeltaT = &g_deltaT;
+		g_atsps.BrakeNotch = &g_brakeNotch;
+		g_atsps.TrainSpeed = &g_speed;
+		g_atsps.DeltaT = &g_deltaT;
 
-			g_datc.BrakeNotch = &g_brakeNotch;
-			g_datc.Time = &g_time;
-			g_datc.TrainSpeed = &g_speed;
-			g_datc.DeltaT = &g_deltaT;
+		g_datc.BrakeNotch = &g_brakeNotch;
+		g_datc.Time = &g_time;
+		g_datc.TrainSpeed = &g_speed;
+		g_datc.DeltaT = &g_deltaT;
 
-			g_spp.TrainSpeed = &g_speed;
-			g_spp.DeltaT = &g_deltaT;
-			g_spp.BrakeNotch = &g_brakeNotch;
+		g_spp.TrainSpeed = &g_speed;
+		g_spp.DeltaT = &g_deltaT;
+		g_spp.BrakeNotch = &g_brakeNotch;
 
-			g_eb.Time = &g_time;
-			g_eb.TrainSpeed = &g_speed;
+		g_eb.Time = &g_time;
+		g_eb.TrainSpeed = &g_speed;
 
-			g_tims.BrakeNotch = &g_brakeNotch;
-			g_tims.PowerNotch = &g_powerNotch;
-			g_tims.Reverser = &g_reverser;
-			g_tims.Time = &g_time;
-			g_tims.TrainSpeed = &g_speed;
-			g_tims.DeltaT = &g_deltaT;
-			g_tims.c_DAtcSlideArrow = &g_datc.SlideArrow;
+		g_tims.BrakeNotch = &g_brakeNotch;
+		g_tims.PowerNotch = &g_powerNotch;
+		g_tims.Reverser = &g_reverser;
+		g_tims.Time = &g_time;
+		g_tims.TrainSpeed = &g_speed;
+		g_tims.DeltaT = &g_deltaT;
+		g_tims.c_DAtcSlideArrow = &g_datc.SlideArrow;
 
-			g_sub.BrakeNotch = &g_brakeNotch;
-			g_sub.PowerNotch = &g_powerNotch;
-			g_sub.Reverser = &g_reverser;
-			g_sub.TrainSpeed = &g_speed;
+		g_sub.BrakeNotch = &g_brakeNotch;
+		g_sub.PowerNotch = &g_powerNotch;
+		g_sub.Reverser = &g_reverser;
+		g_sub.TrainSpeed = &g_speed;
 
-			g_accel.Time = &g_time;
-			g_accel.TrainSpeed = &g_speed;
-			g_accel.DeltaT = &g_deltaT;
-			break;
+		g_accel.Time = &g_time;
+		g_accel.TrainSpeed = &g_speed;
+		g_accel.DeltaT = &g_deltaT;
+		break;
 
-		case DLL_THREAD_ATTACH:
-		case DLL_THREAD_DETACH:
-		case DLL_PROCESS_DETACH:
-			break;
+	case DLL_THREAD_ATTACH:
+	case DLL_THREAD_DETACH:
+	case DLL_PROCESS_DETACH:
+		break;
 	}
 
 	// CFGファイル読み込み
-	char filePath[ _MAX_PATH + 1 ] = _T( "" ); // ファイルパス格納
-	char *posIni; // 検索文字列へのポインタ
+	char filePath[_MAX_PATH + 1] = _T(""); // ファイルパス格納
+	char* posIni; // 検索文字列へのポインタ
 	bool loadCheck; // INIファイルのロードに成功したかどうか
 
 	// Ats.dllのファイルパスを取得
@@ -83,7 +83,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
 	// INIファイルをロードして結果を取得
 	loadCheck = g_ini.load(filePath);
 
-    return TRUE;
+	return TRUE;
 }
 
 ATS_API void WINAPI Load()
@@ -107,7 +107,7 @@ ATS_API void WINAPI SetVehicleSpec(ATS_VEHICLESPEC vehicleSpec)
 	g_atssn.CancelNotch = vehicleSpec.AtsNotch;
 	g_atsp.EmergencyNotch = g_emgBrake;
 	g_atsp.ServiceNotch = vehicleSpec.AtsNotch;
-	//g_atsps.EmergencyNotch = g_emgBrake;
+	g_atsps.EmergencyNotch = g_emgBrake;
 	g_datc.EmergencyNotch = g_emgBrake;
 	g_spp.ServiceNotch = vehicleSpec.AtsNotch;
 	g_eb.EmergencyNotch = g_emgBrake;
@@ -135,7 +135,7 @@ ATS_API void WINAPI Initialize(int brake)
 	g_speed = 0;
 }
 
-ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int *sound)
+ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int* sound)
 {
 	g_deltaT = vehicleState.Time - g_time;
 	g_time = vehicleState.Time;
@@ -158,21 +158,21 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	g_accel.execute(); // 加速度
 
 	// ハンドル出力
-	if(g_atssn.AtsBrake || g_atsp.EmergencyBrake || g_datc.AtcBrake == 2 || g_eb.Emergency || g_sub.Key == 0)
+	if (g_atssn.AtsBrake || g_atsp.EmergencyBrake || g_datc.AtcBrake == 2 || g_eb.Emergency || g_sub.Key == 0)
 	{
 		g_output.Brake = g_emgBrake;
 		g_output.ConstantSpeed = ATS_CONSTANTSPEED_DISABLE;
 
 		g_powerNotch = 0; // 手放し運転防止
 	}
-	else if(g_brakeNotch != g_emgBrake && (g_atsp.ServiceBrake || g_datc.AtcBrake == 1))
+	else if (g_brakeNotch != g_emgBrake && (g_atsp.ServiceBrake || g_datc.AtcBrake == 1))
 	{
 		g_output.Brake = g_svcBrake;
 		g_output.ConstantSpeed = ATS_CONSTANTSPEED_DISABLE;
 
 		g_powerNotch = 0; // 手放し運転防止
 	}
-	else if(g_tims.BcPressCut == 1)
+	else if (g_tims.BcPressCut == 1)
 	{
 		g_output.Brake = 1; // EB緩解時にブレーキを減圧する
 		g_output.ConstantSpeed = ATS_CONSTANTSPEED_CONTINUE;
@@ -182,7 +182,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 		g_output.Brake = g_brakeNotch;
 		g_output.ConstantSpeed = ATS_CONSTANTSPEED_CONTINUE;
 	}
-	if(g_pilotlamp)
+	if (g_pilotlamp)
 	{
 		g_output.Reverser = g_reverser;
 	}
@@ -190,7 +190,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	{
 		g_output.Reverser = 0;
 	}
-	if(g_time > g_tims.AccelCutting && g_tims.VCB_ON == 1) // 力行遅延とVCB
+	if (g_time > g_tims.AccelCutting && g_tims.VCB_ON == 1) // 力行遅延とVCB
 	{
 		g_output.Power = g_powerNotch;
 	}
@@ -200,7 +200,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	}
 	// g_output.ConstantSpeed = ATS_CONSTANTSPEED_CONTINUE;
 
-	for(int i=0;i<256;i++){panel[i] = 0;}
+	for (int i = 0; i < 256; i++) { panel[i] = 0; }
 
 	// パネル出力
 	panel[0] = !g_eb.Emergency ? g_atssn.WhiteLamp : (!g_atsp.AtspLamp && g_eb.RedLamp); // ATS白色灯
@@ -217,14 +217,14 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	panel[12] = g_time / 1000 % 60; // デジタル秒
 
 	// ATS-Ps
-	panel[9] = 0; // Ps電源 (主系・従系)
-	panel[13] = 0; // パターン発生
-	panel[14] = 0; // パターン接近
-	panel[15] = 0; // ブレーキ動作
-	panel[16] = 0; // ブレーキ開放
-	panel[17] = 0; // 列車速度LED
-	panel[18] = 0; // パターン速度LED
-	panel[19] = 0; // Ps故障
+	panel[9] = g_atsps.AtsPs; // Ps電源 (主系・従系)
+	panel[13] = g_atsps.PatternStart; // パターン発生
+	panel[14] = g_atsps.PatternApproach; // パターン接近
+	panel[15] = g_atsps.BrakeTurnOn; // ブレーキ動作
+	panel[16] = g_atsps.BrakeTurnOff; // ブレーキ開放
+	panel[17] = g_atsps.TrainSpeedLED; // 列車速度LED
+	panel[18] = g_atsps.PatternSpeedLED; // パターン速度LED
+	panel[19] = g_atsps.BrakeDown; // Ps故障
 
 	// D-ATC
 	panel[20] = g_datc.DAtc; // D-ATC電源
@@ -293,46 +293,46 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	panel[81] = g_tims.alert_ACDC > 0 ? 1 + ((g_time % 800) / 400) : 0; // 交直切替(点滅)
 
 	/*
-	panel[60] = g_tims.TrackPath2[0]; // 開通情報(0-25m)
-	panel[61] = g_tims.TrackPath2[1]; // 開通情報(25-50m)
-	panel[62] = g_tims.TrackPath2[2]; // 開通情報(50-75m)
-	panel[63] = g_tims.TrackPath2[3]; // 開通情報(75-100m)
-	panel[64] = g_tims.TrackPath2[4]; // 開通情報(100-125m)
-	panel[65] = g_tims.TrackPath2[5]; // 開通情報(125-150m)
-	panel[66] = g_tims.TrackPath2[6]; // 開通情報(150-175m)
-	panel[67] = g_tims.TrackPath2[7]; // 開通情報(175-200m)
-	panel[68] = g_tims.TrackPath2[8]; // 開通情報(200-225m)
-	panel[69] = g_tims.TrackPath2[9]; // 開通情報(225-250m)
-	panel[70] = g_tims.TrackPath2[10]; // 開通情報(250-275m)
-	panel[71] = g_tims.TrackPath2[11]; // 開通情報(275-300m)
-	panel[72] = g_tims.TrackPath2[12]; // 開通情報(300-325m)
-	panel[73] = g_tims.TrackPath2[13]; // 開通情報(325-350m)
-	panel[74] = g_tims.TrackPath2[14]; // 開通情報(350-375m)
-	panel[75] = g_tims.TrackPath2[15]; // 開通情報(375-400m)
-	panel[76] = g_tims.TrackPath2[16]; // 開通情報(400-425m)
-	panel[77] = g_tims.TrackPath2[17]; // 開通情報(425-450m)
-	panel[78] = g_tims.TrackPath2[18]; // 開通情報(450-475m)
-	panel[79] = g_tims.TrackPath2[19]; // 開通情報(475-500m)
-	panel[80] = g_tims.TrackPath2[20]; // 開通情報(500-525m)
-	panel[81] = g_tims.TrackPath2[21]; // 開通情報(525-550m)
-	panel[82] = g_tims.TrackPath2[22]; // 開通情報(550-575m)
-	panel[83] = g_tims.TrackPath2[23]; // 開通情報(575-600m)
-	panel[84] = g_tims.TrackPath2[24]; // 開通情報(600-625m)
-	panel[85] = g_tims.TrackPath2[25]; // 開通情報(625-650m)
-	panel[86] = g_tims.TrackPath2[26]; // 開通情報(650-675m)
-	panel[87] = g_tims.TrackPath2[27]; // 開通情報(675-700m)
-	panel[88] = g_tims.TrackPath2[28]; // 開通情報(700-725m)
-	panel[89] = g_tims.TrackPath2[29]; // 開通情報(725-750m)
-	panel[90] = g_tims.TrackPath2[30]; // 開通情報(750-775m)
-	panel[91] = g_tims.TrackPath2[31]; // 開通情報(775-800m)
-	panel[92] = g_tims.TrackPath2[32]; // 開通情報(800-825m)
-	panel[93] = g_tims.TrackPath2[33]; // 開通情報(825-850m)
-	panel[94] = g_tims.TrackPath2[34]; // 開通情報(850-875m)
-	panel[95] = g_tims.TrackPath2[35]; // 開通情報(875-900m)
-	panel[96] = g_tims.TrackPath2[36]; // 開通情報(900-925m)
-	panel[97] = g_tims.TrackPath2[37]; // 開通情報(925-950m)
-	panel[98] = g_tims.TrackPath2[38]; // 開通情報(950-975m)
-	panel[99] = g_tims.TrackPath2[39]; // 開通情報(975-1000m)
+	panel[260] = g_tims.TrackPath2[0]; // 開通情報(0-25m)
+	panel[261] = g_tims.TrackPath2[1]; // 開通情報(25-50m)
+	panel[262] = g_tims.TrackPath2[2]; // 開通情報(50-75m)
+	panel[263] = g_tims.TrackPath2[3]; // 開通情報(75-100m)
+	panel[264] = g_tims.TrackPath2[4]; // 開通情報(100-125m)
+	panel[265] = g_tims.TrackPath2[5]; // 開通情報(125-150m)
+	panel[266] = g_tims.TrackPath2[6]; // 開通情報(150-175m)
+	panel[267] = g_tims.TrackPath2[7]; // 開通情報(175-200m)
+	panel[268] = g_tims.TrackPath2[8]; // 開通情報(200-225m)
+	panel[269] = g_tims.TrackPath2[9]; // 開通情報(225-250m)
+	panel[270] = g_tims.TrackPath2[10]; // 開通情報(250-275m)
+	panel[271] = g_tims.TrackPath2[11]; // 開通情報(275-300m)
+	panel[272] = g_tims.TrackPath2[12]; // 開通情報(300-325m)
+	panel[273] = g_tims.TrackPath2[13]; // 開通情報(325-350m)
+	panel[274] = g_tims.TrackPath2[14]; // 開通情報(350-375m)
+	panel[275] = g_tims.TrackPath2[15]; // 開通情報(375-400m)
+	panel[276] = g_tims.TrackPath2[16]; // 開通情報(400-425m)
+	panel[277] = g_tims.TrackPath2[17]; // 開通情報(425-450m)
+	panel[278] = g_tims.TrackPath2[18]; // 開通情報(450-475m)
+	panel[279] = g_tims.TrackPath2[19]; // 開通情報(475-500m)
+	panel[280] = g_tims.TrackPath2[20]; // 開通情報(500-525m)
+	panel[281] = g_tims.TrackPath2[21]; // 開通情報(525-550m)
+	panel[282] = g_tims.TrackPath2[22]; // 開通情報(550-575m)
+	panel[283] = g_tims.TrackPath2[23]; // 開通情報(575-600m)
+	panel[284] = g_tims.TrackPath2[24]; // 開通情報(600-625m)
+	panel[285] = g_tims.TrackPath2[25]; // 開通情報(625-650m)
+	panel[286] = g_tims.TrackPath2[26]; // 開通情報(650-675m)
+	panel[287] = g_tims.TrackPath2[27]; // 開通情報(675-700m)
+	panel[288] = g_tims.TrackPath2[28]; // 開通情報(700-725m)
+	panel[289] = g_tims.TrackPath2[29]; // 開通情報(725-750m)
+	panel[290] = g_tims.TrackPath2[30]; // 開通情報(750-775m)
+	panel[291] = g_tims.TrackPath2[31]; // 開通情報(775-800m)
+	panel[292] = g_tims.TrackPath2[32]; // 開通情報(800-825m)
+	panel[293] = g_tims.TrackPath2[33]; // 開通情報(825-850m)
+	panel[294] = g_tims.TrackPath2[34]; // 開通情報(850-875m)
+	panel[295] = g_tims.TrackPath2[35]; // 開通情報(875-900m)
+	panel[296] = g_tims.TrackPath2[36]; // 開通情報(900-925m)
+	panel[297] = g_tims.TrackPath2[37]; // 開通情報(925-950m)
+	panel[298] = g_tims.TrackPath2[38]; // 開通情報(950-975m)
+	panel[299] = g_tims.TrackPath2[39]; // 開通情報(975-1000m)
 	*/
 	panel[100] = g_tims.Kind; // 列車種別
 	panel[101] = g_tims.Number[0]; // 列車番号(千の桁)
@@ -352,15 +352,15 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	panel[115] = g_tims.Crawl ? ((g_time % 750) / 375) : 0; // 徐行区間(点滅)
 	panel[116] = g_tims.Crawl ? g_tims.CrawlLimit : 0;// 徐行速度
 	panel[117] = g_tims.Crawl ? g_tims.CrawlLimit * ((g_time % 750) / 375) : 0;// 徐行速度(点滅)
-//	panel[118] = g_tims.HiddenLine[1] ? 0 : g_tims.PassSta[1]; // 通過駅名表示1
+	//	panel[118] = g_tims.HiddenLine[1] ? 0 : g_tims.PassSta[1]; // 通過駅名表示1
 	panel[119] = g_tims.AfterNumber[0]; // 次運用列番(千の桁)
 	panel[120] = g_tims.AfterNumber[1]; // 次運用列番(百の桁)
 	panel[121] = g_tims.AfterNumber[2]; // 次運用列番(十の桁)
 	panel[122] = g_tims.AfterNumber[3]; // 次運用列番(一の桁)
 	panel[123] = g_tims.AfterChara; // 次運用列番(記号)
-//	panel[124] = g_tims.AfterTime[0][0]; // 次行路着時(時)
-//	panel[125] = g_tims.AfterTime[0][1]; // 次行路着時(分)
-//	panel[126] = g_tims.AfterTime[0][2]; // 次行路着時(秒)
+	//	panel[124] = g_tims.AfterTime[0][0]; // 次行路着時(時)
+	//	panel[125] = g_tims.AfterTime[0][1]; // 次行路着時(分)
+	//	panel[126] = g_tims.AfterTime[0][2]; // 次行路着時(秒)
 	panel[127] = g_tims.AfterTime[1][0]; // 次行路発時(時)
 	panel[128] = g_tims.AfterTime[1][1]; // 次行路発時(分)
 	panel[129] = g_tims.AfterTime[1][2]; // 次行路発時(秒)
@@ -440,7 +440,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	panel[203] = g_tims.HiddenLine[3] ? 0 : g_tims.Limit[3]; // 制限速度4
 	panel[204] = g_tims.HiddenLine[4] ? 0 : g_tims.Limit[4]; // 制限速度5
 	panel[205] = g_tims.ArrowDirection; // 進行方向矢印
-//	panel[205] = g_tims.HiddenLine[5] ? 0 : g_tims.Limit[5]; // 制限速度6
+	//	panel[205] = g_tims.HiddenLine[5] ? 0 : g_tims.Limit[5]; // 制限速度6
 	panel[206] = g_sub.SpeedMeter; // 速度計([0-5km/h]で反応悪い)
 	panel[207] = g_tims.Location1000; // 列車位置(kmの桁)
 	panel[208] = g_tims.Location100; // 列車位置(100mの桁)
@@ -451,7 +451,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	panel[213] = g_tims.UnitTims[0]; // TIMSユニット表示1
 	panel[214] = g_tims.UnitTims[1]; // TIMSユニット表示2
 	panel[215] = g_tims.UnitTims[2]; // TIMSユニット表示3
-//	panel[216] = g_tims.UnitTims[3]; // TIMSユニット表示4
+	//	panel[216] = g_tims.UnitTims[3]; // TIMSユニット表示4
 	panel[216] = g_tims.UnitState[0]; // ユニット表示灯1
 	panel[217] = g_tims.UnitState[1]; // ユニット表示灯2
 	panel[218] = g_tims.UnitState[2]; // ユニット表示灯3
@@ -483,17 +483,17 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	panel[244] = g_tims.TimsSpeed100; // TIMS速度計(100km/hの桁)
 	panel[245] = g_tims.TimsSpeed10; // TIMS速度計(10km/hの桁)
 	panel[246] = g_tims.TimsSpeed1; // TIMS速度計(1km/hの桁)
-//	panel[247] = g_tims.HiddenLine[2] ? 0 : g_tims.PassSta[2]; // 通過駅名表示3
-//	panel[248] = g_tims.HiddenLine[3] ? 0 : g_tims.PassSta[3]; // 通過駅名表示4
-//	panel[249] = g_tims.HiddenLine[4] ? 0 : g_tims.PassSta[4]; // 通過駅名表示5
-//	panel[250] = g_tims.HiddenLine[5] ? 0 : g_tims.PassSta[5]; // 通過駅名表示6
-//	panel[251] = g_tims.HiddenLine[6] ? 0 : g_tims.PassSta[6]; // 通過駅名表示7
+	//	panel[247] = g_tims.HiddenLine[2] ? 0 : g_tims.PassSta[2]; // 通過駅名表示3
+	//	panel[248] = g_tims.HiddenLine[3] ? 0 : g_tims.PassSta[3]; // 通過駅名表示4
+	//	panel[249] = g_tims.HiddenLine[4] ? 0 : g_tims.PassSta[4]; // 通過駅名表示5
+	//	panel[250] = g_tims.HiddenLine[5] ? 0 : g_tims.PassSta[5]; // 通過駅名表示6
+	//	panel[251] = g_tims.HiddenLine[6] ? 0 : g_tims.PassSta[6]; // 通過駅名表示7
 	panel[252] = g_tims.HiddenLine[6] ? 12 : g_tims.Arrive[6][2]; // 到着時刻7S
 	panel[253] = g_tims.HiddenLine[6] ? 12 : g_tims.Leave[6][2]; // 出発時刻7S
-//	panel[254] = g_tims.HiddenLine[5] ? 0 : g_tims.Span[5][0]; // 駅間走行時間67M
-//	panel[255] = g_tims.HiddenLine[5] ? 0 : g_tims.Span[5][1]; // 駅間走行時間67S
+	//	panel[254] = g_tims.HiddenLine[5] ? 0 : g_tims.Span[5][0]; // 駅間走行時間67M
+	//	panel[255] = g_tims.HiddenLine[5] ? 0 : g_tims.Span[5][1]; // 駅間走行時間67S
 
-	// サウンド出力
+		// サウンド出力
 	sound[0] = max(g_atssn.Bell, g_eb.Bell);
 	sound[1] = g_atssn.Chime;
 	sound[2] = g_atsp.Bell;
@@ -523,7 +523,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int *panel, int
 	sound[105] = g_tims.UpdateInfo;
 	sound[106] = (sound[106] == ATS_SOUND_PLAYLOOPING) ? ATS_SOUND_CONTINUE : (g_date.Cooler == 1 ? ATS_SOUND_PLAYLOOPING : ATS_SOUND_STOP);
 
-    return g_output;
+	return g_output;
 }
 
 ATS_API void WINAPI SetPower(int notch)
@@ -555,7 +555,7 @@ ATS_API void WINAPI SetReverser(int pos)
 
 ATS_API void WINAPI KeyDown(int atsKeyCode)
 {
-	switch(atsKeyCode)
+	switch (atsKeyCode)
 	{
 	case ATS_KEY_S: // ATS 確認
 		g_atssn.DownButtom();
@@ -584,7 +584,7 @@ ATS_API void WINAPI KeyDown(int atsKeyCode)
 
 ATS_API void WINAPI KeyUp(int atsKeyCode)
 {
-	if(atsKeyCode == ATS_KEY_S){g_atssn.UpButton();}
+	if (atsKeyCode == ATS_KEY_S) { g_atssn.UpButton(); }
 }
 
 ATS_API void WINAPI HornBlow(int hornType)
@@ -611,14 +611,14 @@ ATS_API void WINAPI SetSignal(int signal)
 	g_tims.CheckPath(signal);
 }
 
-ATS_API void WINAPI SetBeaconData(ATS_BEACONDATA beaconData){
+ATS_API void WINAPI SetBeaconData(ATS_BEACONDATA beaconData) {
 
-	switch(beaconData.Type)
+	switch (beaconData.Type)
 	{
 	case ATS_BEACON_S: // Sロング
 		g_atsp.Exit();
 		g_datc.Exit();
-		if(g_speed != 0){g_atssn.PassedLong(beaconData.Signal);} // 駅ジャンプを除外する
+		if (g_speed != 0) { g_atssn.PassedLong(beaconData.Signal); } // 駅ジャンプを除外する
 		break;
 	case ATS_BEACON_SN: // SN直下
 		g_atsp.Exit();
@@ -651,7 +651,7 @@ ATS_API void WINAPI SetBeaconData(ATS_BEACONDATA beaconData){
 		g_atsp.PassedSpeedMax(beaconData.Optional);
 		break;
 	case ATS_BEACON_SPP: // 停車駅通過防止装置
-		if(g_speed != 0){g_spp.Receive(beaconData.Optional % 10000);} // 駅ジャンプを除外する
+		if (g_speed != 0) { g_spp.Receive(beaconData.Optional % 10000); } // 駅ジャンプを除外する
 		break;
 	case ATS_BEACON_SX: // Sx二点間通過時間速照
 		g_atsp.Exit();
@@ -662,37 +662,47 @@ ATS_API void WINAPI SetBeaconData(ATS_BEACONDATA beaconData){
 		g_datc.PassedAtcFall(beaconData.Signal, beaconData.Distance);
 		break;
 	case ATS_BEACON_PS1: // Ps第一パターン発生
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PS2: // Ps第二パターン発生
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PSC: // Ps第一・第二パターン消去
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PSM: // Psパターン種別認識
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PSP: // Ps分岐器速度制限
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PSR: // Ps曲線速度制限
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PSL: // Ps下り勾配速度制限
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PST: // Ps臨時速度制限
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PSY: // Ps入換パターン発生
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_PSZ: // Ps誘導パターン発生
-		g_atsp.Exit();
+		g_atsps.Exit();
+		g_datc.Exit();
 		break;
 	case ATS_BEACON_APP: // TIMS次駅接近
-		if(g_speed != 0){g_spp.Receive(beaconData.Optional % 10000);} // 駅ジャンプを除外する
+		if (g_speed != 0) { g_spp.Receive(beaconData.Optional % 10000); } // 駅ジャンプを除外する
 		g_tims.Receive(beaconData.Optional); // 駅ジャンプを除外しない
 		break;
 	case ATS_BEACON_UPD: // TIMS更新宣言
@@ -750,12 +760,12 @@ ATS_API void WINAPI SetBeaconData(ATS_BEACONDATA beaconData){
 	case ATS_BEACON_DIR: // TIMS進行方向設定
 		g_tims.SetDirection(beaconData.Optional);
 		break;
-	/*
-	case ATS_BEACON_FSA: // TIMS始発発車時刻
-		break;
-	case ATS_BEACON_FST: // TIMS始発発車番線
-		break;
-	*/
+		/*
+		case ATS_BEACON_FSA: // TIMS始発発車時刻
+			break;
+		case ATS_BEACON_FST: // TIMS始発発車番線
+			break;
+		*/
 	case ATS_BEACON_LSA: // TIMS終点到着時刻
 		g_tims.SetLastStop(0, beaconData.Optional);
 		break;
