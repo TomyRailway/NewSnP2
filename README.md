@@ -14,4 +14,4 @@ GNU Lesser General Public Licenseが適用されます。
 従って当プラグインは、自由に実行し、動作を調べ、ソースコードを改変し、複製物を再頒布したり、ソースコードを改変したものを公開することができます。
 
 ## 現在の最新バージョン
-[Version1.0(2024/9/16版)](https://github.com/TomyRailway/NewATS-Sn-P2/releases/tag/Version1.0)
+[Version1.01(2024/10/28版)](https://github.com/TomyRailway/NewATS-Sn-P2/releases/tag/Version1.01)
