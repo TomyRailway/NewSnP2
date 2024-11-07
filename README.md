@@ -17,4 +17,4 @@ GNU Lesser General Public Licenseが適用されます。
 [Version1.01(2024/10/28版)](https://github.com/TomyRailway/NewATS-Sn-P2/releases/tag/Version1.01)
 
 ## 端子台
-端子台は[Googleスプレッドシート(https://docs.google.com/spreadsheets/d/1xgMb2UJBJL4OmPbfiz0sJcCk-QL_uINE)]よりどうぞ
+端子台は[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1xgMb2UJBJL4OmPbfiz0sJcCk-QL_uINE)よりどうぞ
