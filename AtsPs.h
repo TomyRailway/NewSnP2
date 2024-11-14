@@ -25,7 +25,6 @@ public:
 	int PatternStart; // パターン発生
 	int PatternApproach; // パターン接近
 	int BrakeTurnOff; // ブレーキ開放
-	int BrakeTurnOn; // ブレーキ動作
 	int TrainSpeedLED; // 列車速度LED
 	int PatternSpeedLED; // パターン速度LED
 	int BrakeDown; // 故障
@@ -47,16 +46,6 @@ public:
 	{
 		Init();
 	}
-
-	/*
-    // ATS-SNに切替
-    void CAtsps::Exit()
-    {
-	    if(AtspLamp){blowBell(false);}
-	    init();
-    }
-
-	*/
 
 	// Elapseで実行します
 	void execute(void)

@@ -1,10 +1,12 @@
 // JRìåì˙ñ{ ATS-Ps
-// Copyright (C) 2024 TomyRailway
+// Copyright (C) 2009 Unicorn
 
 #ifndef ATS_ATSPS_HPP_INCLUDED
 #define ATS_ATSPS_HPP_INCLUDED
 
 #include "stdafx.h"
+#include "atsplugin.h"
+#include "AtsPs.h"
 
 #define ATSPS_DECELERATION 19.5F // å∏ë¨íËêî (å∏ë¨ìx[km/h/s] x 7.2)
 // 19.5=55^2/(180-25)
@@ -55,6 +57,8 @@ public:
 	    if(AtspLamp){blowBell(false);}
 	    init();
     }
+
+    
 
 	*/
 

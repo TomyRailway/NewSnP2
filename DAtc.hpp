@@ -1,5 +1,5 @@
 // JR“Œ“ú–{ D-ATC
-// Copyright (C) 2009 Unicorn
+// Copyright (C) 2024 TomyRailway
 
 #ifndef ATS_DATC_HPP_INCLUDED
 #define ATS_DATC_HPP_INCLUDED

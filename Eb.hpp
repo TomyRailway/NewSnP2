@@ -1,5 +1,5 @@
 // JRŠeŽÐ EB‘•’u
-// Copyright (C) 2009 Unicorn
+// Copyright (C) 2024 TomyRailway
 
 #include "stdafx.h"
 

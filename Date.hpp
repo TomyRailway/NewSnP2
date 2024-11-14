@@ -1,5 +1,5 @@
 // ŠÔî•ñ˜A“®‘•’u
-// Copyright (C) 2009 Unicorn
+// Copyright (C) 2024 TomyRailway
 
 #ifndef ATS_DATE_HPP_INCLUDED
 #define ATS_DATE_HPP_INCLUDED
