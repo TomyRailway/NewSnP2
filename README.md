@@ -14,9 +14,9 @@ GNU Lesser General Public Licenseが適用されます。
 従って当プラグインは、自由に実行し、動作を調べ、ソースコードを改変し、複製物を再頒布したり、ソースコードを改変したものを公開することができます。
 
 ## 依存するライブラリ
-### [AtsEX](https://github.com/automatic9045/AtsEX) (MIT)
+### [BveEX(旧AtsEX)](https://github.com/automatic9045/BveEX) (PolyForm Noncommercial License 1.00)
 
-Copyright (c) 2022 automatic9045
+Copyright (c) 2022～2024 automatic9045
 
 ## 現在の最新バージョン
 [Version1.01(2024/10/28版)](https://github.com/TomyRailway/NewATS-Sn-P2/releases/tag/Version1.01)
