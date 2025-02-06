@@ -17,7 +17,8 @@ GNU Lesser General Public Licenseが適用されます。
 GPLv3では無いので車両への組み込み配布もお好きに行ってください。
 
 ## 依存するライブラリ
-### [BveEX(旧AtsEX)](https://github.com/automatic9045/BveEX) (PolyForm Noncommercial License 1.00)(BveExに含まれるAtsArrayExtenderを利用しています)
+### [BveEX(旧AtsEX)](https://github.com/automatic9045/BveEX) (PolyForm Noncommercial License 1.00)  
+(BveExに含まれるAtsArrayExtenderを利用しています)
 
 Copyright (c) 2022～2025 automatic9045
 
