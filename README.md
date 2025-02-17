@@ -20,7 +20,7 @@ GPLv3では無いので車両への組み込み配布もお好きに行ってく
 ### [BveEX(旧AtsEX)](https://github.com/automatic9045/BveEX) (PolyForm Noncommercial License 1.00)  
 (BveExに含まれるAtsArrayExtenderを利用しています)
 
-Copyright (c) 2022～2025 automatic9045
+Copyright (c) 2022-2025 automatic9045
 
 ## 現在の最新バージョン
 [Version1.01(2024/10/28版)](https://github.com/TomyRailway/NewATS-Sn-P2/releases/tag/Version1.01)
