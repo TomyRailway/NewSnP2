@@ -5,8 +5,8 @@ Unicorn氏が以前公開していた「JR東日本 次世代車両向け ATSプ
 書き直しを行ったコードについてはライセンスをLGPL3.0に緩和しています。  
 現在当方の環境の都合でデバッグ等に支障が出ており、しばらく更新が出来ません。ご理解の程お願い致します。  
 また、開発に協力して頂ける方を募集しております。  
-有用な機能は是非付属させたいと考えておりますので、[issues](https://github.com/TomyRailway/NewSnP2/issues)や[プルリク](https://github.com/TomyRailway/NewSnP2/pulls)などを送っていただけますと幸いです。  
-
+有用な機能は是非付属させたいと考えておりますので、[プルリク](https://github.com/TomyRailway/NewSnP2/pulls)を送っていただけますと幸いです。  
+その他、実装してほしい機能等がありましたら、[issues](https://github.com/TomyRailway/NewSnP2/issues)を利用してご連絡ください
 
 ## プラグインの機能
 ATS-SN・ATS-P・ATC-6・ATC-10・D-ATC・TIMS・EBなど  
