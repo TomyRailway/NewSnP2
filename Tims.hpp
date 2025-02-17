@@ -1,5 +1,5 @@
 // JR東日本向け TIMS装置 および グラスコックピット装置
-// Copyright (C) 2024 TomyRailway
+// Copyright (C) 2024-2025 TomyRailway
 
 #ifndef ATS_TIMS_HPP_INCLUDED
 #define ATS_TIMS_HPP_INCLUDED

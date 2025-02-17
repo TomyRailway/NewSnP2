@@ -9,7 +9,6 @@
 #define ATS_BEACON_SPP 8 // 停車駅通過防止装置
 #define ATS_BEACON_SX 9 // Sx二点間通過時間速照
 #define ATS_BEACON_DATC 10 // D-ATC更新
-/*
 #define ATS_BEACON_PS1 11 // Ps第一パターン発生
 #define ATS_BEACON_PS2 12 // Ps第二パターン発生
 #define ATS_BEACON_PSC 13 // Ps第一・第二パターン消去
@@ -20,7 +19,6 @@
 #define ATS_BEACON_PST 18 // Ps臨時速度制限
 #define ATS_BEACON_PSY 19 // Ps入換パターン発生
 #define ATS_BEACON_PSZ 20 // Ps誘導パターン発生
-*/
 #define ATS_BEACON_APP 100 // TIMS次駅接近
 #define ATS_BEACON_UPD 101 // TIMS更新宣言
 #define ATS_BEACON_NEXT 102 // TIMS次駅設定
@@ -61,7 +59,7 @@ ATS_HANDLES g_output; // 出力
 
 CAtssn g_atssn; // ATS-SN
 CAtsp g_atsp; // ATS-P
-//CAtsps g_atsps; // ATS-Ps
+CAtsps g_atsps; // ATS-Ps
 CDatc g_datc; // D-ATC
 CSpp g_spp; // 停車駅通過防止装置
 CEb g_eb; // EB装置

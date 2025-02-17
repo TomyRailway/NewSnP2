@@ -1,5 +1,5 @@
 // ŠÔî•ñ˜A“®‘•’u
-// Copyright (C) 2024 TomyRailway
+// Copyright (C) 2024-2025 TomyRailway
 
 #ifndef ATS_DATE_HPP_INCLUDED
 #define ATS_DATE_HPP_INCLUDED

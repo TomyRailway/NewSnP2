@@ -1,5 +1,5 @@
 // ‘Š–Í“S“¹ ATS
-// Copyright (C) TomyRailway 2024
+// Copyright (C) 2024-2025 TomyRailway
 
 #ifndef ATS_MSAF_HPP_INCLUDED
 #define ATS_MSAF_HPP_INCLUDED

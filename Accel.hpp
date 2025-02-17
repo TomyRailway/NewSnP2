@@ -1,5 +1,5 @@
 // 汎用加速度計算機
-// Copyright (C) 2024 TomyRailway
+// Copyright (C) 2009 Unicorn
 
 #ifndef ATS_ACCEL_HPP_INCLUDED
 #define ATS_ACCEL_HPP_INCLUDED

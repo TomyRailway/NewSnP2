@@ -32,8 +32,8 @@ Supplementation
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 */
 
-#ifndef SNP2CFG_H
-#define SNP2CFG_H
+#ifndef NEWSNP2CFG_H
+#define NEWSNP2CFG_H
 
 #include <string>
 using namespace std;

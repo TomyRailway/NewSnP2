@@ -3,7 +3,7 @@
 #include "Atssn.h"
 #include "Atsp.h"
 #include "Spp.h"
-//#include "AtsPs.hpp"
+#include "AtsPs.hpp"
 #include "DAtc.hpp"
 #include "Eb.hpp"
 #include "Tims.hpp"
@@ -29,9 +29,9 @@ BOOL APIENTRY DllMain(HANDLE hModule,
 		g_atsp.BrakeNotch = &g_brakeNotch;
 		g_atsp.Reverser = &g_reverser;
 
-//		g_atsps.BrakeNotch = &g_brakeNotch;
-//		g_atsps.TrainSpeed = &g_speed;
-//		g_atsps.DeltaT = &g_deltaT;
+		g_atsps.BrakeNotch = &g_brakeNotch;
+		g_atsps.TrainSpeed = &g_speed;
+		g_atsps.DeltaT = &g_deltaT;
 
 		g_datc.BrakeNotch = &g_brakeNotch;
 		g_datc.Time = &g_time;
@@ -107,7 +107,7 @@ ATS_API void WINAPI SetVehicleSpec(ATS_VEHICLESPEC vehicleSpec)
 	g_atssn.CancelNotch = vehicleSpec.AtsNotch;
 	g_atsp.EmergencyNotch = g_emgBrake;
 	g_atsp.ServiceNotch = vehicleSpec.AtsNotch;
-//	g_atsps.EmergencyNotch = g_emgBrake;
+	g_atsps.EmergencyNotch = g_emgBrake;
 	g_datc.EmergencyNotch = g_emgBrake;
 	g_spp.ServiceNotch = vehicleSpec.AtsNotch;
 	g_eb.EmergencyNotch = g_emgBrake;
@@ -124,7 +124,7 @@ ATS_API void WINAPI Initialize(int brake)
 
 	g_atssn.InitSn();
 	g_atsp.InitP();
-//	g_atsps.initialize();
+	g_atsps.initialize();
 	g_datc.initialize();
 	g_spp.InitSpp();
 	g_eb.initialize();
@@ -148,7 +148,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 
 	g_atssn.RunSn(); // ATS-SN
 	g_atsp.RunP(); // ATS-P
-//	g_atsps.execute(); // ATS-Ps
+	g_atsps.execute(); // ATS-Ps
 	g_datc.execute(); // D-ATC
 	g_spp.RunSpp(); // 停車駅通過防止装置
 	g_eb.execute(); // EB装置
@@ -215,7 +215,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 	panel[10] = g_time / 3600000; // デジタル時
 	panel[11] = g_time / 60000 % 60; // デジタル分
 	panel[12] = g_time / 1000 % 60; // デジタル秒
-/*
+
 	// ATS-Ps
 	panel[9] = g_atsps.AtsPs; // Ps電源 (主系・従系)
 	panel[13] = g_atsps.PatternStart; // パターン発生
@@ -225,7 +225,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 	panel[17] = g_atsps.TrainSpeedLED; // 列車速度LED
 	panel[18] = g_atsps.PatternSpeedLED; // パターン速度LED
 	panel[19] = g_atsps.BrakeDown; // Ps故障
-*/
+
 	// D-ATC
 	panel[20] = g_datc.DAtc; // D-ATC電源
 	panel[21] = g_datc.IsDAtc; // D-ATC
@@ -291,6 +291,8 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 	panel[79] = g_tims.VCB_OFF; // VCB全切
 	panel[80] = g_tims.VCB; // VCB(DigitalNumber、0無表示～1入～2切)
 	panel[81] = g_tims.alert_ACDC > 0 ? 1 + ((g_time % 800) / 400) : 0; // 交直切替(点滅)
+
+	/*
 	panel[260] = g_tims.TrackPath2[0]; // 開通情報(0-25m)
 	panel[261] = g_tims.TrackPath2[1]; // 開通情報(25-50m)
 	panel[262] = g_tims.TrackPath2[2]; // 開通情報(50-75m)
@@ -331,6 +333,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 	panel[297] = g_tims.TrackPath2[37]; // 開通情報(925-950m)
 	panel[298] = g_tims.TrackPath2[38]; // 開通情報(950-975m)
 	panel[299] = g_tims.TrackPath2[39]; // 開通情報(975-1000m)
+	*/
 	panel[100] = g_tims.Kind; // 列車種別
 	panel[101] = g_tims.Number[0]; // 列車番号(千の桁)
 	panel[102] = g_tims.Number[1]; // 列車番号(百の桁)
@@ -448,7 +451,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 	panel[213] = g_tims.UnitTims[0]; // TIMSユニット表示1
 	panel[214] = g_tims.UnitTims[1]; // TIMSユニット表示2
 	panel[215] = g_tims.UnitTims[2]; // TIMSユニット表示3
-	panel[216] = g_tims.UnitTims[3]; // TIMSユニット表示4
+	//	panel[216] = g_tims.UnitTims[3]; // TIMSユニット表示4
 	panel[216] = g_tims.UnitState[0]; // ユニット表示灯1
 	panel[217] = g_tims.UnitState[1]; // ユニット表示灯2
 	panel[218] = g_tims.UnitState[2]; // ユニット表示灯3
@@ -494,9 +497,9 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 	sound[0] = max(g_atssn.Bell, g_eb.Bell);
 	sound[1] = g_atssn.Chime;
 	sound[2] = g_atsp.Bell;
-//	sound[3] = g_atsps.PatternBegin;
-//	sound[4] = g_atsps.PatternEnd;
-//	sound[5] = g_atsps.Chime;
+	sound[3] = g_atsps.PatternBegin;
+	sound[4] = g_atsps.PatternEnd;
+	sound[5] = g_atsps.Chime;
 	sound[6] = g_spp.HaltChime;
 	sound[7] = g_spp.PassAlarm;
 	sound[7] = g_datc.AtcDing;
@@ -658,7 +661,6 @@ ATS_API void WINAPI SetBeaconData(ATS_BEACONDATA beaconData) {
 		// 130715 試験
 		g_datc.PassedAtcFall(beaconData.Signal, beaconData.Distance);
 		break;
-	/*
 	case ATS_BEACON_PS1: // Ps第一パターン発生
 		g_atsps.Exit();
 		g_datc.Exit();
@@ -699,7 +701,6 @@ ATS_API void WINAPI SetBeaconData(ATS_BEACONDATA beaconData) {
 		g_atsps.Exit();
 		g_datc.Exit();
 		break;
-	*/
 	case ATS_BEACON_APP: // TIMS次駅接近
 		if (g_speed != 0) { g_spp.Receive(beaconData.Optional % 10000); } // 駅ジャンプを除外する
 		g_tims.Receive(beaconData.Optional); // 駅ジャンプを除外しない
