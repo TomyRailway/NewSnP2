@@ -78,8 +78,5 @@
     <ClInclude Include="Tims.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AtsPs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

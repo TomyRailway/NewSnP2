@@ -110,6 +110,7 @@ public:
         int      ebCutPressure;
         int      lbInit;
         int      keyEvent;
+        int      EBEnabled;
     } Emulate;
 
     // Tims
@@ -131,6 +132,7 @@ protected:
         inimoni::inirw( r,f,s, _T("ebCutPressure    "), Emulate.ebCutPressure );
         inimoni::inirw( r,f,s, _T("lbInit           "), Emulate.lbInit     );
         inimoni::inirw( r,f,s, _T("keyEvent         "), Emulate.keyEvent   );
+        inimoni::inirw( r,f,s, _T("EBEnabled        "), Emulate.EBEnabled);
 
         s = _T("Tims");
         inimoni::inirw( r,f,s, _T("line_update      "), Tims.line_update   );
@@ -142,6 +144,7 @@ protected:
         Emulate.ebCutPressure        = 1000;
         Emulate.lbInit               = 0;
         Emulate.keyEvent             = 0;
+        Emulate.EBEnabled            = 1;
         Tims.line_update             = 90;
     }                                                                   
 };
@@ -182,7 +185,7 @@ namespace inimoni
                                                                              
     bool read(string_t ifn, string_t sec, string_t key, basic_string<TCHAR>& dst)
     {                                                                        
-        TCHAR buf[256];                                                      
+        TCHAR buf[1024];                                                      
         GetPrivateProfileString(                                             
             sec.c_str(),                                                     
             key.c_str(),                                                     

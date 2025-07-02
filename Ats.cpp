@@ -121,13 +121,14 @@ ATS_API void WINAPI Initialize(int brake)
 	g_tims.ini_cutPressTime = g_ini.Emulate.ebCutPressure; // ブレーキ圧を減圧する時間
 	g_tims.ini_lbInit = g_ini.Emulate.lbInit; // 初回起動時力行遅延
 	g_sub.ini_keyEvent = g_ini.Emulate.keyEvent; // マスコンキー
+	g_eb.initialize(g_ini.Emulate.EBEnabled);
 
 	g_atssn.InitSn();
 	g_atsp.InitP();
 	g_atsps.initialize();
 	g_datc.initialize();
 	g_spp.InitSpp();
-	g_eb.initialize();
+	g_eb.initialize(g_ini.Emulate.EBEnabled);
 	g_tims.initialize();
 	g_date.initialize();
 	g_sub.initialize();
