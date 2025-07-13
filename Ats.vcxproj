@@ -76,14 +76,18 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>Debug\x64</OutDir>
+    <IntDir>Debug\x64</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>Release\</OutDir>
-    <IntDir>Release\</IntDir>
+    <OutDir>Release\x86</OutDir>
+    <IntDir>Release\x86</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>Release\x64</OutDir>
+    <IntDir>Release\x64</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -201,10 +205,14 @@
     <ClInclude Include="Eb.hpp" />
     <ClInclude Include="Msaf.hpp" />
     <ClInclude Include="NewSnp2Cfg.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Spp.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Sub.hpp" />
     <ClInclude Include="Tims.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NewSnp2.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

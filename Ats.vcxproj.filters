@@ -78,5 +78,11 @@
     <ClInclude Include="Tims.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="NewSnp2.rc" />
   </ItemGroup>
 </Project>

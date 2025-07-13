@@ -201,7 +201,7 @@ ATS_API ATS_HANDLES WINAPI Elapse(ATS_VEHICLESTATE vehicleState, int* panel, int
 	}
 	// g_output.ConstantSpeed = ATS_CONSTANTSPEED_CONTINUE;
 
-	for (int i = 0; i < 256; i++) { panel[i] = 0; }
+	for (int i = 0; i < 1024; i++) { panel[i] = 0; }
 
 	// パネル出力
 	panel[0] = !g_eb.Emergency ? g_atssn.WhiteLamp : (!g_atsp.AtspLamp && g_eb.RedLamp); // ATS白色灯
