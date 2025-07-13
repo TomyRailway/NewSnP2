@@ -24,7 +24,7 @@ GPLv3では無いので車両への組み込み配布もお好きに行ってく
 Copyright (c) 2022-2025 automatic9045
 
 ## 現在の最新バージョン
-[Version1.01(2024/10/28版)](https://github.com/TomyRailway/NewSnp2/releases/tag/Version1.01)
+[Version1.02(2025/7/13版)](https://github.com/TomyRailway/NewSnp2/releases/tag/Version1.02)
 
 ## 端子台
 端子台は[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1xgMb2UJBJL4OmPbfiz0sJcCk-QL_uINE)よりどうぞ
