@@ -21,7 +21,7 @@ GNU General Public License v3.0が適用されます。
 Copyright (c) 2022-2025 automatic9045
 
 ## 現在の最新バージョン
-[Version1.02(2025/7/13版)](https://github.com/TomyRailway/NewSnp2/releases/tag/Version1.02)
+[Version1.03(2025/10/26版)](https://github.com/TomyRailway/NewSnp2/releases/tag/Version1.03)
 
 ## 端子台
 端子台は[Googleスプレッドシート](https://docs.google.com/spreadsheets/d/1hismVojo9I8iO6cHoQmOT9DAAMhSxIcc)よりどうぞ
