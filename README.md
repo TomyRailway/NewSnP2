@@ -18,7 +18,7 @@ GNU General Public License v3.0が適用されます。
 ### [BveEX(旧AtsEX)](https://github.com/automatic9045/BveEX) (PolyForm Noncommercial License 1.00)  
 (BveExに含まれるAtsArrayExtenderを利用しています)
 
-Copyright (c) 2022-2025 automatic9045
+Copyright (c) 2022-2026 automatic9045
 
 ## 現在の最新バージョン
 [Version1.03(2025/10/26版)](https://github.com/TomyRailway/NewSnp2/releases/tag/Version1.03)
